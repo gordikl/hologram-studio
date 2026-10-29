@@ -1,0 +1,242 @@
+<!doctype html><html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>HOLOGRAM STUDIO — Створення сайтів та AI-відео</title><style>
+:root{--bg:#020b08;--mint:#6bffa5;--text:#f2fcf6}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif;overflow-x:hidden}a{color:inherit;text-decoration:none}
+/* Independent fixed video layer, never cropped or scaled by cover. */
+.video-scene{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:#020b08}
+.video-area{position:absolute;right:clamp(0px,2vw,45px);top:0;width:min(64vw,950px);height:100vh;height:100dvh;display:flex;align-items:center;justify-content:center;opacity:.83}
+.video-area{ -webkit-mask-image:radial-gradient(ellipse 78% 80% at 50% 50%,#000 28%,rgba(0,0,0,.92) 48%,rgba(0,0,0,.48) 67%,transparent 91%);mask-image:radial-gradient(ellipse 78% 80% at 50% 50%,#000 28%,rgba(0,0,0,.92) 48%,rgba(0,0,0,.48) 67%,transparent 91%)}
+.video-area video{width:100%;height:100%;display:block;object-fit:contain;object-position:center center}
+.video-scene:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#020b08 5%,rgba(2,11,8,.97) 21%,rgba(2,11,8,.58) 47%,rgba(2,11,8,.10) 75%,rgba(2,11,8,.34) 100%)}
+.site{position:relative;z-index:1}.wrap{width:min(1200px,calc(100% - 64px));margin-inline:auto}header{height:74px;border-bottom:1px solid rgba(86,238,161,.23);display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{font-weight:850;letter-spacing:.065em;font-size:19px;white-space:nowrap}.brand b{color:var(--mint)}nav{display:flex;gap:30px;color:#e1f2e8;font-size:14px}.contact{border:1px solid #237b53;padding:12px 17px;font-size:13px;white-space:nowrap}
+.hero{min-height:680px;min-height:calc(100svh - 74px);display:flex;align-items:center}.hero-content{padding:64px 0 88px;max-width:790px}.eyebrow{font-size:11px;color:#45e9a3;font-weight:750;letter-spacing:.18em;margin-bottom:32px;line-height:1.6}.hero h1{font-size:clamp(32px,3.25vw,48px);line-height:1.26;letter-spacing:-.025em;font-weight:850;max-width:760px;margin:0;text-wrap:pretty;overflow-wrap:normal;hyphens:none}.hero h1 em{font-style:normal;color:var(--mint)}.subtitle{font-size:clamp(16px,1.5vw,20px);line-height:1.7;color:#c3d3c9;max-width:650px;margin:32px 0 42px}.cta{display:flex;gap:14px;flex-wrap:wrap}.btn{display:inline-flex;justify-content:center;align-items:center;padding:18px 23px;font-size:12px;font-weight:800;letter-spacing:.065em;border:1px solid #50e8a0}.primary{background:var(--mint);color:#05100b}.secondary{background:rgba(2,20,13,.7)}
+.services{position:relative;padding:85px 0 115px;background:rgba(2,11,8,.92);border-top:1px solid rgba(90,226,163,.16)}.intro{display:flex;gap:26px;align-items:end;justify-content:space-between;margin-bottom:32px}.kicker,.card-meta{font-size:11px;font-weight:850;letter-spacing:.16em;color:var(--mint)}.intro h2{font-size:clamp(29px,3.7vw,47px);line-height:1.16;letter-spacing:-.035em;margin:17px 0 0}.intro p{color:#a5b7ad;max-width:310px;font-size:14px;line-height:1.6}.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}.card{display:flex;flex-direction:column;background:#041a12;border:1px solid #20533a;border-radius:20px;overflow:hidden;min-width:0;transition:border-color .2s,transform .2s,box-shadow .2s}.card:hover{border-color:var(--mint);box-shadow:0 18px 45px #15c98428}.card img{display:block;width:100%;aspect-ratio:1.54;object-fit:cover}.card-meta{margin:22px 23px 9px}.card h3{margin:0 23px 11px;font-size:24px}.card p{color:#bccfc3;font-size:14px;line-height:1.65;margin:0 23px 22px}.card-link{margin:auto 23px 25px;color:var(--mint);font-size:13px;font-weight:750}.bottom{background:rgba(2,11,8,.96);padding:40px 0 90px;color:#99b1a3;border-top:1px solid #173a2a}.sound{position:fixed;right:16px;bottom:16px;z-index:30;border:1px solid #56f2a5;border-radius:40px;background:#063021;color:#eaffef;padding:13px 18px;cursor:pointer;font-size:13px;font-weight:800}.vtag{position:fixed;left:12px;bottom:12px;z-index:30;padding:9px 13px;color:#effff6;background:#063021;border:1px solid #4bf2a3;border-radius:40px;font-size:12px;font-weight:750}
+@media(max-width:900px){.wrap{width:calc(100% - 40px)}.hero h1{font-size:clamp(32px,4.2vw,43px);max-width:680px}.video-area{right:0;width:78vw;opacity:.66}nav{gap:10px}}@media(max-width:660px){.wrap{width:calc(100% - 32px)}header{height:68px}.brand{font-size:12px}nav{display:none}.contact{font-size:11px;padding:9px}.video-area{right:0;top:0;width:100vw;height:65vh;height:65dvh;opacity:.6}.video-scene:after{background:linear-gradient(0deg,#020b08 21%,rgba(2,11,8,.6) 60%,rgba(2,11,8,.12) 100%)}.hero{min-height:740px;align-items:end}.hero-content{padding:135px 0 60px}.hero h1{font-size:clamp(29px,7.1vw,39px);line-height:1.25;letter-spacing:-.025em}.eyebrow{font-size:9px;letter-spacing:.1em}.subtitle{font-size:15px;margin:22px 0 30px}.cta{flex-direction:column}.btn{max-width:360px}.intro{display:block}.cards{grid-template-columns:1fr}.services{padding:62px 0 90px}.sound{bottom:52px;right:10px;font-size:12px}}
+
+/* V05: entrance overlay provides real user gesture for simultaneous audio/video playback */
+.entry-screen{position:fixed;inset:0;z-index:100;background:radial-gradient(ellipse at 68% 40%,#0d3021 0%,#04120c 42%,#010807 90%);display:grid;place-items:center;padding:24px;transition:opacity .75s ease,visibility .75s ease;overflow:auto}
+.entry-screen.is-open{opacity:0;visibility:hidden;pointer-events:none}
+.entry-panel{width:min(100%,760px);text-align:center;padding:44px 18px;position:relative}
+.entry-mark{font-size:clamp(18px,2.5vw,25px);letter-spacing:.13em;font-weight:850;color:#e8fff0;margin-bottom:40px}
+.entry-mark span{color:#73ffa9}
+.entry-kicker{color:#72ffb3;font-size:11px;letter-spacing:.28em;font-weight:800;margin-bottom:24px}
+.entry-title{font-size:clamp(38px,6.5vw,74px);font-weight:900;letter-spacing:-.055em;line-height:1.06;margin:0 0 24px}
+.entry-title em{font-style:normal;color:#77ffb4}
+.entry-subtitle{color:#a9c3b5;font-size:clamp(15px,1.5vw,19px);line-height:1.65;max-width:520px;margin:0 auto 34px}
+.entry-button{display:inline-flex;align-items:center;justify-content:center;background:#70ffa9;color:#03110b;border:1px solid #70ffa9;font-size:clamp(13px,1.5vw,16px);font-weight:850;letter-spacing:.07em;padding:20px 32px;min-height:64px;cursor:pointer;max-width:100%;line-height:1.4}
+.entry-note{margin-top:20px;color:#99bdab;font-size:12px}
+.entry-fallback{display:none;margin-top:18px}.entry-fallback.show{display:block}
+.entry-fallback button{cursor:pointer;border:1px solid #6fdda4;background:#103729;color:white;padding:12px 22px}
+@media(max-width:660px){.entry-panel{padding:20px 6px}.entry-mark{margin-bottom:30px}.entry-button{padding:17px 18px}}
+
+
+/* V06 — only move hero text left and feather the edges of the video */
+@media (min-width:901px){
+  .hero > .wrap{width:min(1420px,calc(100% - 64px));}
+  .hero-content{max-width:790px;}
+}
+.video-area{
+  -webkit-mask-image:radial-gradient(ellipse 50% 50% at center, #000 0%, #000 42%, rgba(0,0,0,.9) 57%, rgba(0,0,0,.58) 72%, rgba(0,0,0,.2) 88%, transparent 100%);
+  mask-image:radial-gradient(ellipse 50% 50% at center, #000 0%, #000 42%, rgba(0,0,0,.9) 57%, rgba(0,0,0,.58) 72%, rgba(0,0,0,.2) 88%, transparent 100%);
+}
+@media (max-width:900px){.hero > .wrap{width:calc(100% - 40px)}}
+@media (max-width:660px){.hero > .wrap{width:calc(100% - 32px)}}
+
+/* V07: feather the ACTUAL video image, not the wide letterbox container. */
+.video-area {
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+}
+.video-area video {
+  width: auto !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  flex: 0 1 auto;
+  object-fit: contain !important;
+  -webkit-mask-image: linear-gradient(to right,
+    transparent 0%, rgba(0,0,0,.08) 9%, rgba(0,0,0,.55) 25%,
+    #000 40%, #000 60%, rgba(0,0,0,.55) 75%, rgba(0,0,0,.08) 91%, transparent 100%) !important;
+  mask-image: linear-gradient(to right,
+    transparent 0%, rgba(0,0,0,.08) 9%, rgba(0,0,0,.55) 25%,
+    #000 40%, #000 60%, rgba(0,0,0,.55) 75%, rgba(0,0,0,.08) 91%, transparent 100%) !important;
+}
+
+/* V08 — subtle corner rounding (buttons only) and persistent video on scroll. */
+.btn, .entry-button, .contact, .entry-fallback button { border-radius: 18px; }
+/* The video already lives in a fixed layer. Keep it fixed while making it visible
+   behind later sections, without disturbing the card artwork or text. */
+.video-scene { position: fixed !important; inset: 0 !important; z-index: 0 !important; }
+.video-area { position: absolute !important; }
+.site { position: relative; z-index: 1; isolation: auto; }
+.services { background: linear-gradient(90deg,rgba(2,11,8,.95) 0%,rgba(2,11,8,.88) 47%,rgba(2,11,8,.62) 100%); }
+.bottom { background: linear-gradient(90deg,rgba(2,11,8,.94),rgba(2,11,8,.68)); }
+@media(max-width:660px){.services {background:rgba(2,11,8,.85)}.bottom{background:rgba(2,11,8,.82)}}
+
+/* V09 — Desktop: all scrollable content on the left, video permanently fixed on the right. */
+@media (min-width: 901px) {
+  body { overflow-x: hidden; }
+  .site { width: 54%; max-width: 54%; background: #020b08; min-height: 100vh; }
+  .site .wrap, .hero > .wrap { width: calc(100% - 72px) !important; max-width: 800px !important; margin-inline: auto !important; }
+  .site header { width: calc(100% - 72px) !important; gap: 12px; }
+  .site nav { gap: 14px; font-size: 12px; }
+  .site .brand { font-size: clamp(13px,1.35vw,18px); }
+  .site .contact { font-size: 11px; padding: 11px 12px; }
+  .hero { min-height: calc(100svh - 74px); }
+  .hero-content { max-width: 100% !important; padding: 54px 0 76px; }
+  .hero h1 { max-width: 100% !important; font-size: clamp(29px, 2.9vw, 44px); line-height: 1.23; overflow-wrap: normal; }
+  .subtitle { max-width: 100%; font-size: clamp(15px,1.35vw,18px); }
+  .cards { grid-template-columns: minmax(0, 1fr); max-width: 680px; }
+  .intro { display: block; }
+  .intro p { max-width: 100%; }
+  .services { background: #020b08 !important; }
+  .bottom { background: #020b08 !important; }
+  .video-scene { position: fixed !important; left: 54% !important; right: 0 !important; top: 0 !important; bottom: 0 !important; width: 46% !important; height: 100vh !important; height: 100dvh !important; z-index: 0 !important; overflow: hidden; }
+  .video-area { inset: 0 !important; width: 100% !important; height: 100% !important; opacity: .93; }
+  .video-area video { width: 100% !important; height: 100% !important; max-width: 100% !important; max-height: 100% !important; object-fit: contain !important; }
+  .video-scene::after { background: linear-gradient(90deg,#020b08 0%,rgba(2,11,8,.72) 8%,transparent 38%,transparent 76%,rgba(2,11,8,.22) 100%) !important; }
+}
+@media (max-width: 1100px) and (min-width: 901px) {
+  .site { width: 58%; max-width: 58%; }
+  .video-scene { left:58% !important; width:42% !important; }
+  .site header { flex-wrap:wrap; height:auto; min-height:74px; padding-block:14px; }
+  .site nav { order:3; width:100%; }
+}
+@media (max-width: 900px) {
+  .site { width:100%; max-width:100%; }
+  .video-scene { position:fixed !important; inset:0 !important; width:100% !important; height:100dvh !important; }
+  .services,.bottom { background:rgba(2,11,8,.96) !important; }
+}
+
+
+
+
+/* V12 — EXACT working V07 video edge-feathering, with V09 fixed-right layout */
+.video-area {
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+}
+.video-area video {
+  width: auto !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  flex: 0 1 auto;
+  object-fit: contain !important;
+  -webkit-mask-image: linear-gradient(to right,
+    transparent 0%, rgba(0,0,0,.08) 9%, rgba(0,0,0,.55) 25%,
+    #000 40%, #000 60%, rgba(0,0,0,.55) 75%, rgba(0,0,0,.08) 91%, transparent 100%) !important;
+  mask-image: linear-gradient(to right,
+    transparent 0%, rgba(0,0,0,.08) 9%, rgba(0,0,0,.55) 25%,
+    #000 40%, #000 60%, rgba(0,0,0,.55) 75%, rgba(0,0,0,.08) 91%, transparent 100%) !important;
+}
+
+/* V21: portfolio cards with responsive homepage-like visual concepts */
+.portfolio{position:relative;background:#020b08;padding:75px 0 105px;border-top:1px solid #12392b;isolation:isolate}
+.portfolio-head{margin-bottom:28px}.portfolio-head .kicker{display:block;margin-bottom:12px}.portfolio-head h2{font-size:clamp(29px,3.6vw,46px);line-height:1.14;margin:0 0 12px}.portfolio-head p{font-size:14px;line-height:1.7;color:#aac4b6;margin:0;max-width:680px}
+.portfolio-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.port-item{display:block;min-width:0;overflow:hidden;border:1px solid #22523d;border-radius:18px;background:#071b13;transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease;color:#effff7}
+a.port-item:hover{transform:translateY(-5px);border-color:#68f9ac;box-shadow:0 20px 55px #34f1a41b}
+.port-browser{aspect-ratio:1.58;position:relative;overflow:hidden;background:#0b1914}
+.browser-top{height:24px;display:flex;gap:5px;align-items:center;padding:0 12px;background:#14251e;border-bottom:1px solid #234132;position:relative;z-index:2}
+.browser-dot{width:6px;height:6px;border-radius:100%;background:#719382}.browser-pill{height:8px;width:38%;border-radius:12px;background:#254537;margin-left:12px}
+.browser-stage{position:relative;height:calc(100% - 24px);padding:5.5% 7%;overflow:hidden;display:flex;flex-direction:column;justify-content:center;isolation:isolate}
+.browser-stage:before{content:'';position:absolute;inset:0;z-index:-1;background:var(--cover-bg)}
+.browser-brand{font-size:clamp(10px,1.1vw,17px);letter-spacing:.18em;font-weight:900;align-self:flex-start;max-width:85%;}
+.browser-headline{margin-top:6%;max-width:82%;font-weight:800;font-size:clamp(15px,2vw,29px);line-height:1.08;text-wrap:balance}
+.browser-small{font-size:clamp(9px,.9vw,13px);margin-top:9px;max-width:68%;line-height:1.5;opacity:.8}
+.browser-cta{margin-top:14px;padding:7px 12px;background:var(--accent);font-size:clamp(8px,.8vw,12px);font-weight:800;color:var(--cta-color,#06110b);width:max-content;border-radius:4px}
+.browser-shape{position:absolute;border-radius:50%;width:41%;aspect-ratio:1;right:-8%;top:16%;background:radial-gradient(circle at 34% 36%,var(--light),var(--accent) 56%,transparent 68%);filter:drop-shadow(0 10px 25px #0005);opacity:.9;z-index:-1}
+.browser-shape:after{content:'';position:absolute;inset:15%;border:1px solid #ffffff40;border-radius:50%}
+.mini-gordik{--cover-bg:linear-gradient(120deg,#0d0804,#3a261a 56%,#080805);--accent:#b79b60;--light:#e4cba0;color:#f4e8d5}
+.mini-pilon{--cover-bg:linear-gradient(130deg,#110b18,#472640 65%,#160c18);--accent:#e9abcf;--light:#ffb3d9;color:white}
+.mini-mali{--cover-bg:linear-gradient(120deg,#0c1510,#243c27 60%,#090e0a);--accent:#a4bc6d;--light:#e5d9aa;color:#eaf2de}
+.mini-frumi{--cover-bg:linear-gradient(125deg,#fff0d2,#edc190);--accent:#d45550;--light:#ffe89d;color:#463022;--cta-color:#fff}
+.mini-frumi .browser-shape{width:36%;right:3%;top:18%;border-radius:27%;background:conic-gradient(#eeb04a 0 30%,#c4484f 30% 60%,#eea252 60% 80%,#b96052 80%);transform:rotate(-19deg)}
+.mini-banya{--cover-bg:linear-gradient(125deg,#241c13,#6b4a30 65%,#0f2f35);--accent:#64e4ce;--light:#b7f6ed;color:#fff4dd}
+.mini-wedding{--cover-bg:linear-gradient(125deg,#faf3e7,#d8c7b7);--accent:#8c6858;--light:#f5eddd;color:#534137}
+.mini-wedding .browser-shape{border-radius:42% 42% 12% 12%;background:linear-gradient(150deg,#fff6dc,#a1b29b);opacity:.8;right:2%;top:5%;height:75%;aspect-ratio:auto;width:33%}
+.port-info{padding:18px 22px 21px}.port-kicker{font-size:10px;letter-spacing:.16em;color:#6bffa5;font-weight:800}.port-title{margin:8px 0;font-size:21px;line-height:1.25}.port-desc{margin:0;color:#b2c5b9;font-size:13px;line-height:1.6;min-height:42px}.port-action{margin-top:14px;font-size:12px;color:#71f7b1;font-weight:800}.port-pending{color:#aec5b7}.port-status{position:absolute;top:34px;right:11px;z-index:2;padding:6px 9px;background:#06160edb;color:#d0f1e0;border:1px solid #356247;border-radius:8px;font-size:10px}
+@media(max-width:740px){.portfolio{padding:58px 0 85px}.portfolio-grid{grid-template-columns:1fr}.browser-headline{font-size:clamp(22px,5vw,34px)}.browser-brand{font-size:13px}.browser-small{font-size:12px}.browser-cta{font-size:11px}}
+
+/* V21: real screenshots provided by the site creator */
+.port-browser.real-screenshot {background:#060d09;display:flex;align-items:center;justify-content:center}
+.port-browser.real-screenshot img {width:100%;height:100%;object-fit:contain;object-position:center;display:block}
+
+/* V22: AI creative showcase, matching the existing emerald aesthetic */
+.creative-portfolio{position:relative;z-index:1;background:#020b08;padding:78px 0 100px;border-top:1px solid rgba(100,255,175,.17)}
+.creative-panel{position:relative;overflow:hidden;border:1px solid #20533a;border-radius:24px;padding:clamp(26px,5vw,62px);background:radial-gradient(ellipse at 92% 23%,rgba(47,171,111,.14),transparent 47%),linear-gradient(125deg,#082118,#03110c 70%)}
+.creative-panel:after{content:"";width:250px;height:250px;position:absolute;right:-130px;top:-110px;border:1px solid rgba(107,255,165,.28);border-radius:50%;pointer-events:none}
+.creative-panel .kicker{display:block;margin-bottom:18px}
+.creative-panel h2{font-size:clamp(31px,4.2vw,57px);line-height:1.11;letter-spacing:-.045em;max-width:720px;margin:0 0 18px;color:#f2fcf6}
+.creative-panel h2 em{font-style:normal;color:var(--mint)}
+.creative-panel p{max-width:620px;line-height:1.7;font-size:clamp(15px,1.45vw,18px);color:#bcd0c4;margin:0 0 32px}
+.creative-link{display:inline-flex;align-items:center;justify-content:center;min-height:50px;background:var(--mint);color:#03120c!important;font-weight:800;font-size:13px;letter-spacing:.045em;border-radius:10px;padding:14px 22px;text-decoration:none;transition:transform .2s ease,box-shadow .2s ease}
+.creative-link:hover{transform:translateY(-2px);box-shadow:0 10px 36px rgba(64,251,145,.19)}
+@media(max-width:660px){.creative-portfolio{padding:50px 0 75px}.creative-panel{border-radius:17px}.creative-link{width:100%;text-align:center}}
+
+/* V23: make real project links and creative portfolio discoverable */
+.portfolio .port-item[href] .port-action{display:inline-flex;align-items:center;justify-content:center;background:#6bffa5;color:#06140d;padding:12px 17px;border-radius:10px;min-height:42px;font-weight:800;box-shadow:0 0 0 1px #72ffad33}
+.portfolio .port-item[href]:hover .port-action{background:#b2ffce}
+.portfolio-quicklinks{display:flex;gap:12px;flex-wrap:wrap;margin:22px 0 26px}
+.portfolio-quicklinks a{display:inline-flex;align-items:center;padding:13px 19px;border:1px solid #3dd68d;color:#dfffea;border-radius:10px;background:#09251a;font-weight:750;font-size:13px}
+.portfolio-quicklinks a:last-child{background:#6bffa5;color:#04160b}
+.creative-panel{border-color:#40e895;box-shadow:0 0 0 1px rgba(106,255,175,.13),0 14px 70px rgba(24,112,68,.19)}
+.creative-panel h2{color:#f4fff8}
+.creative-panel h2 em{color:#75ffb1}
+.creative-link{box-shadow:0 6px 25px rgba(44,223,123,.2)}
+.creative-portfolio{scroll-margin-top:35px}
+
+/* V24: four-step workflow. Existing video, card and scroll styles unchanged. */
+.workflow{position:relative;background:#03120c;padding:86px 0 96px;border-top:1px solid #1a4e36}
+.workflow-label{font-size:12px;font-weight:800;letter-spacing:.19em;color:#6bffa5}
+.workflow h2{font-size:clamp(30px,3.8vw,48px);line-height:1.14;letter-spacing:-.035em;max-width:840px;margin:16px 0 14px}
+.workflow-lead{color:#b4cbbc;max-width:760px;line-height:1.7;margin:0 0 36px}
+.workflow-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.workflow-step{border:1px solid #24523b;background:#071d13;border-radius:18px;padding:26px 20px;min-width:0}
+.workflow-number{color:#71ffb0;font-size:12px;font-weight:800;letter-spacing:.18em}
+.workflow-step h3{font-size:19px;line-height:1.35;margin:16px 0 12px}
+.workflow-step p{font-size:14px;line-height:1.65;margin:0;color:#adc7b6}
+.workflow-actions{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.workflow-actions a{display:inline-flex;padding:15px 23px;border-radius:10px;border:1px solid #51e49a;font-size:13px;font-weight:800}
+.workflow-actions a:first-child{background:#6bffa5;color:#03120a}
+@media(max-width:900px){.workflow-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.workflow{padding:58px 0 72px}.workflow-grid{grid-template-columns:1fr}.workflow-step{padding:22px}}
+
+/* V26 — accessible clickable phone, Telegram and Instagram in every page header */
+header .hs-header-links{display:flex;align-items:center;justify-content:flex-end;gap:8px;flex-shrink:0;margin-left:auto}
+header .hs-header-links a{width:40px;height:40px;display:inline-flex;align-items:center;justify-content:center;gap:7px;color:#79f7ae!important;background:rgba(9,40,27,.86);border:1px solid rgba(93,233,158,.52);border-radius:12px;text-decoration:none!important;transition:background .2s,transform .2s,border-color .2s;white-space:nowrap}
+header .hs-header-links a:hover,header .hs-header-links a:focus-visible{background:#17583a;border-color:#8bffc2;transform:translateY(-2px);outline-offset:3px}
+header .hs-header-links svg{width:19px;height:19px;display:block;flex-shrink:0}
+header .hs-header-links span{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:700px){header .hs-header-links{gap:5px}header .hs-header-links a{width:35px;height:35px;border-radius:10px}header .hs-header-links svg{width:17px;height:17px}header{gap:8px!important}}
+@media(max-width:360px){header .hs-header-links a{width:30px;height:32px}header .hs-header-links svg{width:15px;height:15px}}
+</style><style id="hs-contact-v25">.hs-contact-links{display:flex;flex-wrap:wrap;gap:14px 25px;align-items:center;justify-content:center;margin:22px auto 12px;padding:19px 18px;border:1px solid rgba(107,255,165,.28);border-radius:16px;background:rgba(6,32,22,.9);max-width:930px;font-family:Arial,Helvetica,sans-serif}.hs-contact-links a{color:#e7fff0!important;font-size:15px;text-decoration:none!important;white-space:nowrap}.hs-contact-links a:hover{color:#6bffa5!important}.hs-contact-label{color:#6bffa5;font-weight:750;letter-spacing:.12em;font-size:10px}@media(max-width:600px){.hs-contact-links{flex-direction:column;gap:14px;text-align:center}.hs-contact-links a{font-size:15px}}
+/* V27 — текстові картки портфоліо без скриншотів чи макетів */
+.portfolio-grid .port-item{min-height:190px;display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(140deg,#082117,#04150e);}
+.portfolio-grid .port-info{padding:28px 26px 26px;display:flex;flex-direction:column;flex:1;}
+.portfolio-grid .port-title{font-size:clamp(22px,2.2vw,29px);margin:13px 0 12px;}
+.portfolio-grid .port-desc{min-height:0;}
+.portfolio-grid .port-action{margin-top:auto;padding-top:22px;}
+.portfolio-grid a.port-item:focus-visible{outline:2px solid #68f9ac;outline-offset:4px;}
+</style>
+  <meta name="description" content="HOLOGRAM STUDIO — створення сучасних сайтів, вебдизайн, AI-відео, рекламні ролики та цифровий креатив для брендів і бізнесу.">
+  <meta name="robots" content="index, follow">
+</head><body>
+<div class="entry-screen" id="entry" role="dialog" aria-modal="true" aria-label="Вхід до HOLOGRAM STUDIO"><div class="entry-panel"><div class="entry-mark"><span>◇ H</span> HOLOGRAM STUDIO</div><div class="entry-kicker">WEB DESIGN ✳ AI VIDEO ✳ CREATIVE</div><h1 class="entry-title">ІДЕЇ, ЩО<br><em>ОЖИВАЮТЬ.</em></h1><p class="entry-subtitle">Сайти, які притягують погляд. Відео, які викликають емоції.</p><button class="entry-button" id="enter" type="button">УВІЙТИ У СВІТ HOLOGRAM STUDIO ↗</button><div class="entry-note">Натискання відкриває сайт із відео та музикою</div><div class="entry-fallback" id="fallback"><button id="retrySound" type="button">♫ Увімкнути музику</button></div></div></div><div class="video-scene" aria-hidden="true"><div class="video-area"><video id="video" muted loop playsinline preload="metadata"><source src="original_full_video.mp4" type="video/mp4"></video></div></div>
+<div class="site"><header class="wrap"><a href="#top" class="brand"><b>◇ H</b> HOLOGRAM STUDIO</a><nav><a href="#services">Послуги</a><a href="#portfolio">Проєкти</a><a href="about.html">Про студію</a></nav><div class="hs-header-links" aria-label="Швидкі контакти"><a href="tel:+380502528513" aria-label="Зателефонувати: 050 252 85 13" title="Зателефонувати: 050 252 85 13"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.7 19.7 0 0 1-8.6-3.1 19.4 19.4 0 0 1-6-6 19.7 19.7 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg><span>Телефон</span></a><a href="https://t.me/holo_gramstudio?direct" target="_blank" rel="noopener noreferrer" aria-label="Написати у Telegram" title="Telegram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-8-8-4 19-8Z"/><path d="M22 2 11 14"/></svg><span>Telegram</span></a><a href="https://www.instagram.com/holo.gramstudio/" target="_blank" rel="noopener noreferrer" aria-label="Відкрити Instagram" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg><span>Instagram</span></a></div></header><main><section id="top" class="hero"><div class="wrap"><div class="hero-content"><div class="eyebrow">WEB DESIGN ✳ ARTIFICIAL INTELLIGENCE ✳ STORYTELLING</div><h1>САЙТИ, ЩО <em>ПРИТЯГУЮТЬ ПОГЛЯД</em> ТА ПРАЦЮЮТЬ НА РЕЗУЛЬТАТ.</h1><p class="subtitle">Відео, які викликають емоції. AI-креатив, що перетворює сміливі ідеї на візуальний досвід.</p><div class="cta"><a href="#portfolio" class="btn primary">ДИВИТИСЯ РОБОТИ ↗</a><a class="btn secondary" href="https://t.me/holo_gramstudio?direct" target="_blank" rel="noopener">ОБГОВОРИТИ ПРОЄКТ ↗</a></div></div></div></section><section class="services" id="services"><div class="wrap"><div class="intro"><div><span class="kicker">01 — НАШІ НАПРЯМИ</span><h2>Ідеї, що стають<br>цифровими історіями.</h2></div><p>Оберіть напрям, щоб дізнатися, що входить у послугу та як ми працюємо.</p></div><div class="cards"><a class="card" href="./web-design.html"><img src="card_1.jpeg" alt="WEB DESIGN — авторська композиція сучасного ноутбука"><span class="card-meta">WEB DESIGN</span><h3>Створення сайтів</h3><p>Сайти, які вражають дизайном і працюють на результат.</p><span class="card-link">Детальніше про створення сайтів ↗</span></a><a class="card" href="./ai-video.html" aria-label="Відкрити сторінку послуги AI-відео та креатив"><img src="card_2.jpeg" alt="AI VIDEO — кінематографічна студійна композиція"><span class="card-meta">AI VIDEO &amp; CREATIVE</span><h3>AI-відео та креатив</h3><p>Відео, що захоплюють увагу, викликають емоції та розповідають історії.</p><span class="card-link">Детальніше про AI-відео ↗</span></a></div></div></section><section class="portfolio" id="portfolio"><div class="wrap"><div class="portfolio-head"><span class="kicker">02 — ВЕБПРОЄКТИ</span><h2>Сайти, які мають <span style="color:#69f8ac">свій характер.</span></h2><p>Кожен проєкт — окрема історія. Від першої ідеї до готового цифрового рішення. Створюємо сайти, які відображають характер бренду та справляють враження.</p></div><div class="portfolio-quicklinks"><a href="#portfolio">Головні сторінки сайтів ↓</a><a href="#creatives">Перейти до AI-креативів ↗</a></div><div class="portfolio-grid"><a class="port-item" href="https://gordikl.github.io/Gordik-L/" target="_blank" rel="noopener noreferrer"><div class="port-info"><div class="port-kicker">ІНДИВІДУАЛЬНІ СУМКИ</div><h3 class="port-title">Майстерня сумок</h3><p class="port-desc">Сайт бренду шкіряних виробів.</p><div class="port-action">Відкрити сайт ↗</div></div></a><a class="port-item" href="https://pilonparadise.com.ua/" target="_blank" rel="noopener noreferrer"><div class="port-info"><div class="port-kicker">POLE DANCE STUDIO</div><h3 class="port-title">Студія пілону</h3><p class="port-desc">Сайт студії тренувань і танцю.</p><div class="port-action">Відкрити сайт ↗</div></div></a><a class="port-item" href="https://maligator.com.ua/" target="_blank" rel="noopener noreferrer"><div class="port-info"><div class="port-kicker">BELGIAN MALINOIS</div><h3 class="port-title">Малігатор</h3><p class="port-desc">Сайт кінологічного центру.</p><div class="port-action">Відкрити сайт ↗</div></div></a><article class="port-item"><div class="port-info"><div class="port-kicker">ФРУКТОВА ПАСТИЛА</div><h3 class="port-title">Пастила FRUMI</h3><p class="port-desc">Сайт бренду фруктової пастили.</p><div class="port-action port-pending">Сайт у підготовці</div></div></article><article class="port-item"><div class="port-info"><div class="port-kicker">PARTY EXPERIENCE</div><h3 class="port-title">Crazy Banya Disco</h3><p class="port-desc">Сайт-запрошення на тематичну вечірку.</p><div class="port-action port-pending">Посилання додамо</div></div></article><article class="port-item"><div class="port-info"><div class="port-kicker">SAVE THE DATE</div><h3 class="port-title">Весільне запрошення</h3><p class="port-desc">Майбутній проєкт для портфоліо.</p><div class="port-action port-pending">Скоро в портфоліо</div></div></article></div></div></section><section class="creative-portfolio" id="creatives" aria-labelledby="creatives-heading"><div class="wrap"><div class="creative-panel"><span class="kicker">03 — AI VIDEO PORTFOLIO</span><h2 id="creatives-heading">Ідеї, що <em>оживають у кадрі.</em></h2><p>Рекламні ролики, цифрові персонажі та візуальні історії. Переглядайте наші роботи й нові творчі експерименти в Instagram.</p><a class="creative-link" href="https://www.instagram.com/holo.gramstudio/" target="_blank" rel="noopener noreferrer" aria-label="Переглянути AI-креативи HOLOGRAM STUDIO в Instagram">Переглянути AI-креативи ↗</a></div></div></section><section class="workflow" id="process"><div class="wrap"><div class="workflow-label">03 / НАШ ПІДХІД</div><h2>Від першої ідеї — до <span style="color:#6bffa5">готового результату.</span></h2><p class="workflow-lead">Зрозумілий процес без зайвої складності. Обсяг, терміни й етапи узгоджуємо індивідуально для кожного проєкту.</p><div class="workflow-grid"><article class="workflow-step"><div class="workflow-number">01 / ЗНАЙОМСТВО</div><h3>Обговорення ідеї</h3><p>З’ясовуємо мету, аудиторію, побажання та завдання, які має вирішувати сайт або відео.</p></article><article class="workflow-step"><div class="workflow-number">02 / КОНЦЕПЦІЯ</div><h3>Візуальне рішення</h3><p>Погоджуємо структуру, стиль, сценарій або референси — залежно від формату роботи.</p></article><article class="workflow-step"><div class="workflow-number">03 / РЕАЛІЗАЦІЯ</div><h3>Створення проєкту</h3><p>Розробляємо дизайн і функції сайту або створюємо та монтуємо відеоконтент.</p></article><article class="workflow-step"><div class="workflow-number">04 / ФІНАЛ</div><h3>Передача й підтримка</h3><p>Перевіряємо результат, вносимо узгоджені правки. Для сайтів передбачаємо погоджений супровід після запуску.</p></article></div><div class="workflow-actions"><a href="https://t.me/holo_gramstudio?direct" target="_blank" rel="noopener">Обговорити проєкт ↗</a><a href="about.html">Дізнатися про студію ↗</a></div></div></section><section id="about" class="bottom"><div class="wrap">HOLOGRAM STUDIO · WEB DESIGN & AI CREATIVE<div class="hs-contact-links" aria-label="Контакти HOLOGRAM STUDIO"><span class="hs-contact-label">ЗВ'ЯЗОК ІЗ НАМИ</span><a href="tel:+380502528513" aria-label="Зателефонувати 050 252 85 13">☎ 050 252 85 13</a><a href="https://t.me/holo_gramstudio?direct" target="_blank" rel="noopener noreferrer">Telegram ↗</a><a href="https://www.instagram.com/holo.gramstudio/" target="_blank" rel="noopener noreferrer">Instagram ↗</a></div></div></section></main></div><audio id="music" src="studio_music.m4a" loop preload="metadata"></audio><button class="sound" id="sound" type="button" aria-pressed="false">♫ Увімкнути музику</button><span class="vtag">HOLOGRAM STUDIO · V27</span>
+<script>
+const video=document.getElementById('video');
+const music=document.getElementById('music');
+const sound=document.getElementById('sound');
+const entry=document.getElementById('entry');
+const enter=document.getElementById('enter');
+const fallback=document.getElementById('fallback');
+const retrySound=document.getElementById('retrySound');
+let opened=false;
+function sync(){const playing=!music.paused;sound.textContent=playing?'♫ Вимкнути музику':'♫ Увімкнути музику';sound.setAttribute('aria-pressed',String(playing))}
+function tryMusic(){music.volume=.65;const attempt=music.play();if(attempt&&attempt.then){attempt.then(()=>{fallback.classList.remove('show');sync()}).catch(()=>{fallback.classList.add('show');sync()})}else{sync()}}
+enter.addEventListener('click',function(){if(opened)return;opened=true;video.currentTime=0;video.play().catch(()=>{});tryMusic();entry.classList.add('is-open');entry.setAttribute('aria-hidden','true');setTimeout(()=>entry.hidden=true,800)});
+retrySound.addEventListener('click',tryMusic);
+sound.addEventListener('click',()=>{if(music.paused)tryMusic();else{music.pause();sync()}});
+music.addEventListener('play',sync);music.addEventListener('pause',sync);
+video.pause();music.pause();sync();
+</script></body></html>
